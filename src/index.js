@@ -1,14 +1,5 @@
-import './style.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-function component() {
-    let element = document.createElement('div');
-    
-    element.innerHTML = "Hello webpack";
-    element.classList.add('hello');
-
-    element.appendChild(btn);
-
-    return element;
-}
-  
-document.body.appendChild(component());
+ReactDOM.render(<App />, document.getElementById("root"));
