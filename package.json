@@ -1,0 +1,25 @@
+{
+  "name": "react-svg-graphs",
+  "version": "1.0.0",
+  "description": "Toolbox to create and manipulate svg graphs in react",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "webpack --config webpack.dev.js",
+    "build:dev:watch": "webpack --watch --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js"
+  },
+  "private": true,
+  "repository": "https://github.com/guroyer/react-svg-graphs.git",
+  "author": "Guillaume Royer",
+  "license": "MIT",
+  "dependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-merge": "^4.1.4"
+  }
+}
