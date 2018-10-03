@@ -12,7 +12,13 @@ module.exports = {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist")
     },
-    resolve: { extensions: [".ts", ".tsx", ".js", ".json"] },
+    resolve: { 
+        extensions: [".ts", ".tsx", ".js", ".json"],
+        alias: {
+            utils: path.join(__dirname, "src", "components/utils"),
+            graphs: path.join(__dirname, "src", "components/graphs")
+        }
+    },
     module: {
         rules: [
             { 

@@ -7,7 +7,12 @@
         "target": "es5",
         "jsx": "react",
         "esModuleInterop": true,
-        "lib": ["dom","es2015"]
+        "lib": ["dom","es2015"],
+        "baseUrl": "src",
+        "paths": {
+            "utils/*": ["components/utils/*"],
+            "graphs/*": ["components/graphs/*"]
+        }
     },
     "include": [
         "./src/**/*"
