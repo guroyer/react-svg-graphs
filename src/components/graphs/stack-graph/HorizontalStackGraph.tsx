@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 
-import { Svg } from "utils/Svg";
+import Svg from "utils/Svg";
+import G from "utils/G";
 import { StackGraphValue } from "./StackGraphValue";
 
-export class HorizontalStackGraph extends Component {
+class HorizontalStackGraph extends Component {
     render() {
         return (
             <div className="horizontal-stack-graph-container">
                 <Svg>
-                    <g>
+                    <G>
                         <StackGraphValue width={50} height={50} color="black" />
-                    </g>
-                    <g transform="translate(50, 0)">
+                    </G>
+                    <G x={50} y={0}>
                         <StackGraphValue width={50} height={50} color="red" />
-                    </g>
+                    </G>
                 </Svg>
             </div>
         );
     }
 }
+
+export default HorizontalStackGraph;

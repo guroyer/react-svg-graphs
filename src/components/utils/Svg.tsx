@@ -6,12 +6,12 @@ export interface SvgProps {
     height?: number
 };
 
-export const Svg: SFC<SvgProps> = (props) => {
-    const { children, width, height } = props;
-
+const Svg: SFC<SvgProps> = ({ children, width, height }) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height}>
             {children}
         </svg>
     );
 };
+
+export default Svg;

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 
-import { HorizontalStackGraph } from "./HorizontalStackGraph";
+import HorizontalStackGraph from "./HorizontalStackGraph";
 
-export class StackGraph extends Component {
+class StackGraph extends Component {
     render() {
         return (
             <HorizontalStackGraph />
         );
     }
 }
+
+export default StackGraph;

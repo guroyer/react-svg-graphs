@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { StackGraph } from "./components/graphs/stack-graph/StackGraph";
+import StackGraph from "./components/graphs/stack-graph/StackGraph";
 
 class App extends Component<{}, {}> {
     render() {
