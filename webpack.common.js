@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: "./src/index.js"
+        app: "./src/index.tsx"
     },
     plugins: [
         new CleanWebpackPlugin(["dist"])
@@ -13,14 +13,18 @@ module.exports = {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist")
     },
-    resolve: { extensions: ["*", ".js", ".jsx"] },
+    resolve: { extensions: ["*", ".ts", ".tsx", ".js"] },
     module: {
         rules: [
-            {
-                test: /\.(js|jsx)$/,
+            { 
+                test: /\.tsx?$/,
                 exclude: /(node_modules)/,
-                loader: "babel-loader",
-                options: { presets: ["@babel/env"] }
+                loader: "awesome-typescript-loader" 
+            },
+            { 
+                enforce: "pre", 
+                test: /\.js$/,
+                loader: "source-map-loader" 
             },
             {
                 test: /\.css$/,
