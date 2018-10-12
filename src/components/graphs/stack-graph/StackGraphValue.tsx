@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
 export interface StackGraphValueProps {
     color: string,
@@ -6,7 +6,7 @@ export interface StackGraphValueProps {
     height: number
 }
 
-export class StackGraphValue extends Component<StackGraphValueProps> {
+export class StackGraphValue extends PureComponent<StackGraphValueProps> {
     render() {
         const { color, width, height } = this.props;
 
