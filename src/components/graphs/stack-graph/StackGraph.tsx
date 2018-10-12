@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 
-import Svg from "utils/Svg";
 import G from "utils/G";
 import { StackGraphValue } from "graphs/stack-graph/StackGraphValue";
 
@@ -51,7 +50,7 @@ class StackGraph extends PureComponent<StackGraphProps> {
         );
     }
 
-    renderValues() {
+    render() {
         const { units, width, height, direction } = this.props;
         const x = direction === StackGraphDirectionEnum.horizontal ? 0 : height;
         const angle = direction == StackGraphDirectionEnum.horizontal ? 0 : 90;
@@ -70,22 +69,6 @@ class StackGraph extends PureComponent<StackGraphProps> {
                     return returnValue;
                 })}
             </G>
-        );
-    }
-
-    render() {
-        const { width, height, direction } = this.props;
-        const displayedWidth = direction === StackGraphDirectionEnum.horizontal ? width : height;
-        const diplayedHeight = direction === StackGraphDirectionEnum.horizontal ? height : width;
-
-        return (
-            <div className="horizontal-stack-graph-container">
-                <Svg width={displayedWidth} height={diplayedHeight}>
-                    <G>
-                        {this.renderValues()}
-                    </G>
-                </Svg>
-            </div>
         );
     }
 }
