@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-import StackGraph from "./components/graphs/stack-graph/StackGraph";
+import HorizontalStackGraph from "graphs/stack-graph/HorizontalStackGraph";
 
 class App extends Component<{}, {}> {
     render() {
         return (
             <div className="app-root">
                 <div className="graphs-demo-container">
-                    <StackGraph />
+                    <HorizontalStackGraph />
                 </div>
             </div>
         );
