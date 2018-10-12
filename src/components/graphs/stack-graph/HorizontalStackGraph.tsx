@@ -4,10 +4,16 @@ import Svg from "utils/Svg";
 import G from "utils/G";
 import { StackGraphValue } from "./StackGraphValue";
 
+export enum StackGraphDirectionEnum {
+    horizontal,
+    vertical
+}
+
 export interface HorizontalStackGraphProps {
     values: HorizontalStackGraphValue[],
     width: number,
-    height: number
+    height: number,
+    direction?: StackGraphDirectionEnum
 }
 
 export interface HorizontalStackGraphValue {
@@ -16,6 +22,10 @@ export interface HorizontalStackGraphValue {
 }
 
 class HorizontalStackGraph extends PureComponent<HorizontalStackGraphProps> {
+    static defaultProps = {
+        direction: StackGraphDirectionEnum.horizontal
+    };
+
     total: number;
 
     constructor(props: HorizontalStackGraphProps) {
@@ -42,12 +52,14 @@ class HorizontalStackGraph extends PureComponent<HorizontalStackGraphProps> {
     }
 
     renderValues() {
-        const { values, width } = this.props;
+        const { values, width, height, direction } = this.props;
+        const x = direction === StackGraphDirectionEnum.horizontal ? 0 : height;
+        const angle = direction == StackGraphDirectionEnum.horizontal ? 0 : 90;
 
         let xPosition = 0;
 
         return (
-            <G>
+            <G angle={angle} x={x}>
                 {values.map((value, index) => {
                     const adjustedWidth = value.value * width / this.total;
 
@@ -62,11 +74,13 @@ class HorizontalStackGraph extends PureComponent<HorizontalStackGraphProps> {
     }
 
     render() {
-        const { width, height } = this.props;
+        const { width, height, direction } = this.props;
+        const displayedWidth = direction === StackGraphDirectionEnum.horizontal ? width : height;
+        const diplayedHeight = direction === StackGraphDirectionEnum.horizontal ? height : width;
 
         return (
             <div className="horizontal-stack-graph-container">
-                <Svg width={width} height={height}>
+                <Svg width={displayedWidth} height={diplayedHeight}>
                     <G>
                         {this.renderValues()}
                     </G>

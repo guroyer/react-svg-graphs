@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 
-import HorizontalStackGraph from "./HorizontalStackGraph";
+import HorizontalStackGraph, { StackGraphDirectionEnum } from "./HorizontalStackGraph";
 
 const values = [
     {value: 70, color: "green"},
@@ -13,7 +13,11 @@ const values = [
 class StackGraph extends PureComponent {
     render() {
         return (
-            <HorizontalStackGraph values={values} width={600} height={50} />
+            <HorizontalStackGraph 
+                values={values} 
+                width={600} 
+                height={50} 
+                direction={StackGraphDirectionEnum.vertical} />
         );
     }
 }
