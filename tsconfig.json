@@ -11,7 +11,8 @@
         "baseUrl": "src",
         "paths": {
             "utils/*": ["components/utils/*"],
-            "graphs/*": ["components/graphs/*"]
+            "graphs/*": ["components/graphs/*"],
+            "examples/*": ["examples/*"]
         }
     },
     "include": [

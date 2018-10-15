@@ -3,18 +3,20 @@ import React, { PureComponent } from "react";
 import Svg from "utils/Svg";
 import StackGraph, { StackGraphDirectionEnum } from "graphs/stack-graph/StackGraph";
 
-const units = [
-    {value: 70, color: "green"},
-    {value: 30, color: "red"},
-    {value: 21, color: "blue"},
-    {value: 54, color: "yellow"},
-    {value: 13, color: "purple"}
-];
+export interface HorizontalStackGraphProps {
+    units: HorizontalStackGraphUnit[],
+    width: number,
+    height: number
+}
 
-class HorizontalStackGraph extends PureComponent {
+export interface HorizontalStackGraphUnit {
+    color: string,
+    value: number
+}
+
+class HorizontalStackGraph extends PureComponent<HorizontalStackGraphProps> {
     render() {
-        const width = 600;
-        const height = 50;
+        const { units, width, height } = this.props;
 
         return (
             <div className="horizontal-stack-graph-container">

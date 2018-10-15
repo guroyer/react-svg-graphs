@@ -16,7 +16,8 @@ module.exports = {
         extensions: [".ts", ".tsx", ".js", ".json"],
         alias: {
             utils: path.join(__dirname, "src", "components/utils"),
-            graphs: path.join(__dirname, "src", "components/graphs")
+            graphs: path.join(__dirname, "src", "components/graphs"),
+            examples: path.join(__dirname, "src", "examples")
         }
     },
     module: {
