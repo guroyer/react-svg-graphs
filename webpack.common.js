@@ -13,7 +13,7 @@ module.exports = {
         path: path.resolve(__dirname, "dist")
     },
     resolve: { 
-        extensions: [".ts", ".tsx", ".js", ".json"],
+        extensions: [".ts", ".tsx", ".js", ".json", ".less"],
         alias: {
             utils: path.join(__dirname, "src", "components/utils"),
             graphs: path.join(__dirname, "src", "components/graphs"),
@@ -32,11 +32,14 @@ module.exports = {
                 loader: "source-map-loader" 
             },
             {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
+                test: /\.less$/,
+                use: [{
+                    loader: 'style-loader'
+                }, {
+                    loader: 'css-loader'
+                }, {
+                    loader: 'less-loader'
+                }]
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
