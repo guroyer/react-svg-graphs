@@ -1,13 +1,14 @@
 import React, { PureComponent } from "react";
 
 import HorizontalStackGraph from "graphs/stack-graph/HorizontalStackGraph";
+import "./horizontalStackGraphDemo.less";
 
 const units = [
-    {value: 70, color: "green"},
-    {value: 30, color: "red"},
-    {value: 21, color: "blue"},
-    {value: 54, color: "yellow"},
-    {value: 13, color: "purple"}
+    {value: 70, color: "#90d24d"},
+    {value: 30, color: "#a9dc76"},
+    {value: 21, color: "#78dce8"},
+    {value: 54, color: "#ff6188"},
+    {value: 13, color: "#ff2e62"}
 ];
 
 class HorizontalStackGraphDemo extends PureComponent {

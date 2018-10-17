@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
 import HorizontalStackGraphDemo from "examples/horizontal-stack-graph-demo/HorizontalStackGraphDemo";
+import "./app.less";
 
-class App extends Component<{}, {}> {
+class App extends PureComponent {
     render() {
         return (
             <div className="app-root">
