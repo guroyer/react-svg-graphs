@@ -17,7 +17,8 @@ class HorizontalStackGraphDemo extends PureComponent {
             <HorizontalStackGraph
                 units={units} 
                 width={600} 
-                height={50} />
+                height={50}
+                title="Horizontal Stack Graph" />
         );
     }
 }

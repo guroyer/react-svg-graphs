@@ -17,7 +17,8 @@ module.exports = {
         alias: {
             utils: path.join(__dirname, "src", "components/utils"),
             graphs: path.join(__dirname, "src", "components/graphs"),
-            examples: path.join(__dirname, "src", "examples")
+            examples: path.join(__dirname, "src", "examples"),
+            assets: path.join(__dirname, "src", "assets")
         }
     },
     module: {
@@ -50,7 +51,7 @@ module.exports = {
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 use: [
-                    'file-loader'
+                    'url-loader'
                 ]
             }
         ]

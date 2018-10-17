@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 
 import HorizontalStackGraphDemo from "examples/horizontal-stack-graph-demo/HorizontalStackGraphDemo";
+import "assets/fonts/font.less";
 import "./app.less";
 
 class App extends PureComponent {

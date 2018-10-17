@@ -12,7 +12,8 @@
         "paths": {
             "utils/*": ["components/utils/*"],
             "graphs/*": ["components/graphs/*"],
-            "examples/*": ["examples/*"]
+            "examples/*": ["examples/*"],
+            "assets/*": ["assets/*"]
         }
     },
     "include": [
