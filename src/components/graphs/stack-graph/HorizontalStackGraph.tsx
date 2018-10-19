@@ -1,19 +1,14 @@
 import React, { PureComponent } from "react";
 
 import Svg from "utils/Svg";
-import StackGraph, { StackGraphDirectionEnum } from "graphs/stack-graph/StackGraph";
+import StackGraph, { StackGraphUnit, StackGraphDirectionEnum } from "graphs/stack-graph/StackGraph";
 import "./horizontalStackGraph.less";
 
 export interface HorizontalStackGraphProps {
-    units: HorizontalStackGraphUnit[],
+    units: StackGraphUnit[],
     width: number,
     height: number,
     title: string
-}
-
-export interface HorizontalStackGraphUnit {
-    color: string,
-    value: number
 }
 
 class HorizontalStackGraph extends PureComponent<HorizontalStackGraphProps> {
