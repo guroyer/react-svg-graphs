@@ -39,6 +39,8 @@ class StackGraph extends PureComponent<StackGraphProps> {
 
         return total;
     }
+
+    // TODO : add derivedstatefromprops to update the total;
     
     renderValue(width: number, color: string, x: number, index: number) {
         const { height } = this.props;
@@ -55,16 +57,16 @@ class StackGraph extends PureComponent<StackGraphProps> {
         const x = direction === StackGraphDirectionEnum.horizontal ? 0 : height;
         const angle = direction == StackGraphDirectionEnum.horizontal ? 0 : 90;
 
-        let xPosition = 0;
+        let xPos = 0;
 
         return (
             <G angle={angle} x={x}>
-                {units.map((value, index) => {
-                    const adjustedWidth = value.value * width / this.total;
+                {units.map((unit, index) => {
+                    const adjustedWidth = unit.value * width / this.total;
 
-                    const returnValue = this.renderValue(adjustedWidth, value.color, xPosition, index); 
+                    const returnValue = this.renderValue(adjustedWidth, unit.color, xPos, index); 
 
-                    xPosition += adjustedWidth;
+                    xPos += adjustedWidth;
 
                     return returnValue;
                 })}
