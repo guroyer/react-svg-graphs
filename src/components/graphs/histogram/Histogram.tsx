@@ -2,6 +2,8 @@ import React, { PureComponent } from "react";
 
 import Svg from "utils/Svg";
 import G from "utils/G";
+import HistogramValue from "./HistogramValue";
+import { round } from "utils/mathHelpers";
 import "./histogram.less";
 
 interface HistogramProps {
@@ -39,11 +41,12 @@ class Histogram extends PureComponent<HistogramProps> {
 
     // TODO : add derivedstatefromprops to update highestValue;
 
-    renderValue(x: number, barWidth: number, barHeight: number, color: string, index: number) {
+    renderValue(x: number, barWidth: number, barHeight: number, unit: HistogramUnit, index: number) {
         return (
-            <G x={x} y={-barHeight} key={index}>
-                <rect 
-                    style={{fill: color}}
+            <G x={x} y={-barHeight} key={index} >
+                <HistogramValue
+                    color={unit.color}
+                    value={unit.value}
                     width={barWidth}
                     height={barHeight} />
             </G>
@@ -63,9 +66,9 @@ class Histogram extends PureComponent<HistogramProps> {
                 <Svg width={width} height={height}>
                     <G y={height}>
                         {units.map((unit, index) => {
-                            const adjustedHeight = unit.value * height / this.highestValue;
+                            const adjustedHeight = round(unit.value * height / this.highestValue, 0);
                             
-                            const returnValue = this.renderValue(xPos, this.barWidth, adjustedHeight, unit.color, index);
+                            const returnValue = this.renderValue(xPos, this.barWidth, adjustedHeight, unit, index);
 
                             xPos += this.barWidth;
 
