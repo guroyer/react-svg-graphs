@@ -4,14 +4,8 @@ import Svg from "utils/Svg";
 import G from "utils/G";
 import "./histogram.less";
 
-export enum HistogramDirection {
-    horizontal,
-    vertical
-}
-
 interface HistogramProps {
     title: string,
-    direction?: HistogramDirection,
     width: number,
     height: number,
     units: HistogramUnit[],
@@ -24,10 +18,6 @@ interface HistogramUnit {
 }
 
 class Histogram extends PureComponent<HistogramProps> {
-    static defaultProps = {
-        direction: HistogramDirection.horizontal
-    };
-
     highestValue: number;
     barWidth: number;
     
