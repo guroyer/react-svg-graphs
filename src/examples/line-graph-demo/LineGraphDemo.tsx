@@ -1,8 +1,9 @@
 import React, { PureComponent } from "react";
 
 import LineGraph from "graphs/line-graph/LineGraph";
+import { randomInt } from "utils/mathHelpers";
 
-const units = [
+const units1 = [
     { value: 6 },
     { value: 19 },
     { value: 40 },
@@ -13,6 +14,22 @@ const units = [
     { value: 10 },
 ];
 
+const units2 = [
+    { value: randomInt(60) },
+    { value: randomInt(60) },
+    { value: randomInt(60) },
+    { value: randomInt(60) },
+    { value: randomInt(60) },
+    { value: randomInt(60) },
+    { value: randomInt(60) },
+    { value: randomInt(60) },
+]
+
+const lines = [
+    { units: units1, lineColor: "#4cd1e1" },
+    { units: units2, lineColor: "#ff6188" }
+]
+
 class LineGraphDemo extends PureComponent {
     render() {
         return (
@@ -20,8 +37,7 @@ class LineGraphDemo extends PureComponent {
                 title="Line Graph"
                 width={600}
                 height={400}
-                units={units}
-                lineColor="#4cd1e1" />
+                lines={lines} />
         );
     }
 }
