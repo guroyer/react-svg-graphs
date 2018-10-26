@@ -6,7 +6,7 @@ html {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     background-color: #2d2a2e;
     color: #6d6c6d;
@@ -27,6 +27,10 @@ html {
             -webkit-box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.56);
             -moz-box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.56);
             box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.56);
+
+            &:last-child {
+                margin-bottom: 36px;
+            }
         }
     }
 }
