@@ -4,25 +4,25 @@ import LineGraph from "graphs/line-graph/LineGraph";
 import { randomInt } from "utils/mathHelpers";
 
 const units1 = [
-    { value: 6 },
-    { value: 19 },
-    { value: 40 },
-    { value: 52 },
-    { value: 21 },
-    { value: 28 },
-    { value: 27 },
-    { value: 10 },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
 ];
 
 const units2 = [
-    { value: randomInt(60) },
-    { value: randomInt(60) },
-    { value: randomInt(60) },
-    { value: randomInt(60) },
-    { value: randomInt(60) },
-    { value: randomInt(60) },
-    { value: randomInt(60) },
-    { value: randomInt(60) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
+    { value: randomInt(30) },
 ]
 
 const lines = [

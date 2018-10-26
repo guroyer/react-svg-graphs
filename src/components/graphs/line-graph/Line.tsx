@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import momeize from "memoize-one";
+import memoize from "memoize-one";
 
 import G from "utils/G";
 import { round } from "utils/mathHelpers";
@@ -7,6 +7,7 @@ import { round } from "utils/mathHelpers";
 export interface LineProps {
     graphWidth: number,
     graphHeight: number,
+    graphHighestValue: number,
     units: LineUnit[],
     lineColor: string
 }
@@ -27,12 +28,7 @@ interface LineArtifacts {
 }
 
 class Line extends PureComponent<LineProps> {
-    highestValue = momeize((units: LineUnit[]) => {
-        const values = units.map(unit => unit.value);
-
-        return Math.max(...values);
-    });
-    lineArtifacts = momeize(
+    lineArtifacts = memoize(
         (units: LineUnit[], height: number, highestValue: number, widthBetweenUnits: number): LineArtifacts => {
             let xPos = 0;
             let path = "";
@@ -54,12 +50,11 @@ class Line extends PureComponent<LineProps> {
     );
 
     render() {
-        const { graphWidth, graphHeight, units, lineColor } = this.props;
+        const { graphWidth, graphHeight, graphHighestValue, units, lineColor } = this.props;
 
-        const highestValue = this.highestValue(units);
         const amountOfUnit = units.length;
         const widthBetweenUnits = round(graphWidth / (amountOfUnit - 1), 2);
-        const { path, circles } = this.lineArtifacts(units, graphHeight, highestValue, widthBetweenUnits);
+        const { path, circles } = this.lineArtifacts(units, graphHeight, graphHighestValue, widthBetweenUnits);
 
         return (
             <G>

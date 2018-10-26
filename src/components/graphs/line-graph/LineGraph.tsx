@@ -33,11 +33,18 @@ class LineGraph extends PureComponent<LineGraphProps> {
             };
         }
     );
+    highestValue = memoize((lines: LineProps[]) => {
+        const values = [] as number[];
+        lines.map((line) => line.units.map(unit => values.push(unit.value)));
+
+        return Math.max(...values);
+    });
 
     render() {
         const { title, width, height, lines } = this.props;
 
         const { graphWidth, graphHeight } = this.linesCanvas(width, height);
+        const graphHighestValue = this.highestValue(lines);
 
         return (
             <div className="line-graph-container">
@@ -45,12 +52,13 @@ class LineGraph extends PureComponent<LineGraphProps> {
                     {title}
                 </div>
                 <Svg width={width} height={height}>
-                    <G x={padding} y={height + padding}>
+                    <G x={padding} y={height - padding}>
                         {lines.map((line, index) => (
                             <Line 
                                 units={line.units} 
                                 graphWidth={graphWidth} 
-                                graphHeight={graphHeight} 
+                                graphHeight={graphHeight}
+                                graphHighestValue={graphHighestValue}
                                 lineColor={line.lineColor} />
                         ))}
                     </G>
