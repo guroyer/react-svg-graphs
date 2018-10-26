@@ -20,7 +20,8 @@ class LineGraphDemo extends PureComponent {
                 title="Line Graph"
                 width={600}
                 height={400}
-                units={units} />
+                units={units}
+                lineColor="#4cd1e1" />
         );
     }
 }
