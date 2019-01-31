@@ -30,16 +30,16 @@ interface LineArtifacts {
 class Line extends PureComponent<LineProps> {
     lineArtifacts = memoize(
         (units: LineUnit[], height: number, highestValue: number, widthBetweenUnits: number): LineArtifacts => {
-            let xPos = 0;
+            let x = 0;
             let path = "";
             let circles = [] as Circle[];
             units.map((unit, index) => {
                 const command = index < 1 ? "M" : "L";
                 const y = unit.value * -height / highestValue;
                 
-                path += `${command} ${xPos} ${y} `;
-                circles.push({ cx: xPos, cy: y, r: 3});
-                xPos = round(xPos + widthBetweenUnits, 2);
+                path += `${command} ${x} ${y} `;
+                circles.push({ cx: x, cy: y, r: 3});
+                x = round(x + widthBetweenUnits, 2);
             });
 
             return {
